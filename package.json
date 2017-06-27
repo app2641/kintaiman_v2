@@ -6,5 +6,7 @@
   "author": "app2641 <app2641@gmail.com>",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "node-google-apps-script": "^1.1.5"
+  }
 }
