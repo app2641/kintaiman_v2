@@ -1,0 +1,10 @@
+{
+  "name": "kintaiman_v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/app2641/kintaiman_v2.git",
+  "author": "app2641 <app2641@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
