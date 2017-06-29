@@ -1,6 +1,6 @@
-import { hello } from './hello';
+import { Hello } from './hello';
 
 global.main = () => {
-  const name = 'name';
-  Logger.log(hello(name));
+  const hello = new Hello('jeliy');
+  hello.say();
 };

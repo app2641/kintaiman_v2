@@ -1,7 +1,8 @@
 {
-  "plugins": {
+  "extends": "airbnb",
+  "plugins": [
     "googleappsscript"
-  },
+  ],
   "env": {
     "googleappsscript/googleappsscript": true,
     "es6": true,
@@ -9,6 +10,10 @@
   },
   "globals": {
     "global": true
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "jsx-a11y/href-no-hash": 0
   },
   "parserOptions": {
     "ecmaFeatures": {

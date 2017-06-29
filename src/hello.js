@@ -1,3 +1,9 @@
-export function hello(name) {
-  return 'hello '+name+'!';
+export class Hello {
+  constructor(name) {
+    this.name = name;
+  }
+
+  say() {
+    Logger.log(`hello, ${this.name}!`);
+  }
 }
