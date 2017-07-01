@@ -3,5 +3,10 @@
   "plugins": [
     "transform-es3-member-expression-literals",
     "transform-es3-property-literals"
-  ]
+  ],
+  "env": {
+    "development": {
+      "presets": ["power-assert"]
+    }
+  }
 }

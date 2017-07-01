@@ -4,6 +4,6 @@ export default class Hello {
   }
 
   say() {
-    Logger.log(`hello, ${this.name}!`);
+    return Logger.log(`hello, ${this.name}!`);
   }
 }
