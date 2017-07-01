@@ -1,6 +1,12 @@
-import Hello from './hello';
+import App from './app';
 
-global.main = () => {
-  const hello = new Hello('jeliy');
-  hello.say();
-};
+global.test = () => {
+  const params = { user_name: 'app2641', message: '# beginning of message is #' };
+  const app = new App(params);
+  app.run();
+}
+
+global.doPost = (e) => {
+  const app = new App(e.parameters);
+  app.run();
+}
