@@ -7,13 +7,12 @@ export default class Settings {
 
   getUserSheetName(name) {
     const sheet = this.spreadsheet.getSheetByName('Users');
-    const userSets = sheet.getRange("A1:B"+sheet.getLastRow()).getValues();
+    const userSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();
     const matchedUserSet = userSets.find(userSet => (userSet[0] === name));
 
     if (matchedUserSet) {
       return matchedUserSet[1];
-    } else {
-      return null;
     }
+    return null;
   }
 }
