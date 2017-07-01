@@ -1,4 +1,4 @@
-export class Hello {
+export default class Hello {
   constructor(name) {
     this.name = name;
   }

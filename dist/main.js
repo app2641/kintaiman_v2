@@ -10,7 +10,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hello = exports.Hello = function () {
+var Hello = function () {
   function Hello(name) {
     _classCallCheck(this, Hello);
 
@@ -27,14 +27,20 @@ var Hello = exports.Hello = function () {
   return Hello;
 }();
 
+exports["default"] = Hello;
+
 },{}],2:[function(require,module,exports){
 (function (global){
 'use strict';
 
 var _hello = require('./hello');
 
+var _hello2 = _interopRequireDefault(_hello);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 global.main = function () {
-  var hello = new _hello.Hello('jeliy');
+  var hello = new _hello2['default']('jeliy');
   hello.say();
 };
 
