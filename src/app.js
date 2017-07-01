@@ -1,4 +1,4 @@
-import Settings from './settings';
+import Settings from './Settings';
 
 export default class App {
   constructor(message) {

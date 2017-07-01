@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "browserify src/index.js -o dist/main.js -t babelify -p gasify",
-    "eslint": "./node_modules/.bin/eslint",
+    "lint": "./node_modules/.bin/eslint",
     "test": "./node_modules/.bin/mocha",
     "upload": "gapps upload"
   }

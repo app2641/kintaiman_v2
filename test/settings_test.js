@@ -1,5 +1,5 @@
 import assert from 'assert';
-import Settings from '../src/settings';
+import Settings from '../src/Settings';
 
 describe('Settings', () => {
   const settings = new Settings();
