@@ -5,7 +5,8 @@ export default {
     switch (name) {
       case 'Users':
         return UsersSheet;
-        break;
+      default:
+        return null;
     }
-  }
+  },
 };

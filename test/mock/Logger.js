@@ -1,5 +1,3 @@
 export default {
-  log: (str) => {
-    return str;
-  }
+  log: str => (str),
 };

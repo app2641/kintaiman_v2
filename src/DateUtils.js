@@ -8,7 +8,7 @@ export default class DateUtils {
   }
 
   static get DATE_REG() {
-    return /((\d{4})[-\/年]{1}|)(\d{1,2})[-\/月]{1}(\d{1,2})/;
+    return /((\d{4})[-/年]{1}|)(\d{1,2})[-/月]{1}(\d{1,2})/;
   }
 
   parseTime(str) { // eslint-disable-line class-methods-use-this
@@ -44,8 +44,8 @@ export default class DateUtils {
 
     const matches = normalizedStr.match(DateUtils.DATE_REG);
     if (matches) {
-      const month = parseInt(matches[3]);
-      const day = parseInt(matches[4]);
+      const month = parseInt(matches[3], 10);
+      const day = parseInt(matches[4], 10);
 
       return [month, day];
     }

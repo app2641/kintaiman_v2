@@ -18,8 +18,8 @@ describe('CommandFactory', () => {
         'HELLO',
         'good morning',
         'oha',
-        ':sunny:'
-      ].forEach(message => {
+        ':sunny:',
+      ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
         assert.equal(command.constructor.name, 'AttendanceCommand');
       });
@@ -48,8 +48,8 @@ describe('CommandFactory', () => {
         'getwild',
         ':frog:',
         ':beer:',
-        ':beers:'
-      ].forEach(message => {
+        ':beers:',
+      ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
         assert.equal(command.constructor.name, 'LeavingCommand');
       });
@@ -60,8 +60,8 @@ describe('CommandFactory', () => {
         'ランチ行きます',
         '昼食行きます',
         '休憩行きます',
-        ':bento:'
-      ].forEach(message => {
+        ':bento:',
+      ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
         assert.equal(command.constructor.name, 'RestCommand');
       });
