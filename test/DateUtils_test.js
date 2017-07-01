@@ -21,4 +21,25 @@ describe('DateUtils', () => {
       assert.equal(utils.parseTime('３：30'), '3:30');
     })
   });
+
+  describe('parseDate', () => {
+    const utils = new DateUtils(new Date(2017, 0, 1, 0, 0, 0));
+
+    it('today', () => {
+      assert.deepEqual(utils.parseDate('今日'), [1, 1]);
+    });
+
+    it('yesterday', () => {
+      assert.deepEqual(utils.parseDate('昨日'), [12, 31]);
+    });
+
+    it('tomorrow', () => {
+      assert.deepEqual(utils.parseDate('tomorrow'), [1, 2]);
+    });
+
+    it('specify date', () => {
+      assert.deepEqual(utils.parseDate('01/10'), [1, 10]);
+      assert.deepEqual(utils.parseDate('1-01'), [1, 1]);
+    });
+  });
 });
