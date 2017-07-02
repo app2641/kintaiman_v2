@@ -1,3 +1,4 @@
+import CommandFactory from './CommandFactory';
 import DateUtils from './DateUtils';
 import Settings from './Settings';
 
@@ -18,5 +19,8 @@ export default class App {
     const utils = new DateUtils();
     const date = utils.parseDate(this.message);
     const time = utils.parseTime(this.message);
+
+    const command = CommandFactory.getCommand(this.message);
+    command.run();
   }
 }
