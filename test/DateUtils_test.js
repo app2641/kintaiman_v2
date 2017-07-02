@@ -9,10 +9,10 @@ describe('DateUtils', () => {
   });
 
   describe('parseTime', () => {
-    const utils = new DateUtils();
+    const utils = new DateUtils(new Date(2017, 0, 1, 0, 0, 0));
 
     it('not matching string', () => {
-      assert.equal(utils.parseTime('1200'), null);
+      assert.equal(utils.parseTime('1200'), '0:00');
     });
 
     it('matching string', () => {
@@ -23,10 +23,6 @@ describe('DateUtils', () => {
 
   describe('parseDate', () => {
     const utils = new DateUtils(new Date(2017, 0, 1, 0, 0, 0));
-
-    it('today', () => {
-      assert.deepEqual(utils.parseDate('今日'), [1, 1]);
-    });
 
     it('yesterday', () => {
       assert.deepEqual(utils.parseDate('昨日'), [12, 31]);
@@ -39,6 +35,10 @@ describe('DateUtils', () => {
     it('specify date', () => {
       assert.deepEqual(utils.parseDate('01/10'), [1, 10]);
       assert.deepEqual(utils.parseDate('1-01'), [1, 1]);
+    });
+
+    it('not specify date', () => {
+      assert.deepEqual(utils.parseDate('hoge'), [1, 1]);
     });
   });
 });

@@ -14,15 +14,12 @@ export default class DateUtils {
   parseTime(str) { // eslint-disable-line class-methods-use-this
     const normalizedStr = DateUtils.normalize(str);
     const matches = normalizedStr.match(DateUtils.TIME_REG);
-    if (matches) {
-      const hour = matches[1];
-      let min = matches[2];
-      min = min.length === 1 ? `0${min}` : min;
 
-      return `${hour}:${min}`;
-    }
+    const hour = matches ? matches[1] : this.now.getHours();
+    let min = matches ? matches[2] : this.now.getMinutes();
+    min = String(min).length === 1 ? `0${min}` : min;
 
-    return null;
+    return `${hour}:${min}`;
   }
 
   parseDate(str) {
@@ -31,10 +28,6 @@ export default class DateUtils {
     if (normalizedStr.match(/(明日|tomorrow)/)) {
       const tomorrow = new Date(this.now.getFullYear(), this.now.getMonth(), this.now.getDate() + 1);
       return [tomorrow.getMonth() + 1, tomorrow.getDate()];
-    }
-
-    if (normalizedStr.match(/(今日|today)/)) {
-      return [this.now.getMonth() + 1, this.now.getDate()];
     }
 
     if (normalizedStr.match(/(昨日|yesterday)/)) {
@@ -50,7 +43,7 @@ export default class DateUtils {
       return [month, day];
     }
 
-    return null;
+    return [this.now.getMonth() + 1, this.now.getDate()];
   }
 
   static normalize(str) {
