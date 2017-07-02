@@ -1,7 +1,7 @@
-import AttendanceCommand from './AttendanceCommand';
-import LeavingCommand from './LeavingCommand';
-import RestCommand from './RestCommand';
-import GetTimeSheetCommand from './GetTimeSheetCommand';
+import Attendance from './Commands/Attendance';
+import Leaving from './Commands/Leaving';
+import Rest from './Commands/Rest';
+import GetTimeSheet from './Commands/GetTimeSheet';
 
 export default class CommandFactory {
   static get ATTENDANCE_REG() {
@@ -22,13 +22,13 @@ export default class CommandFactory {
 
   static getCommand(message) {
     if (message.match(CommandFactory.ATTENDANCE_REG)) {
-      return new AttendanceCommand();
+      return new Attendance();
     } else if (message.match(CommandFactory.LEAVING_REG)) {
-      return new LeavingCommand();
+      return new Leaving();
     } else if (message.match(CommandFactory.REST_REG)) {
-      return new RestCommand();
+      return new Rest();
     } else if (message.match(CommandFactory.GET_TIMESHEET_REG)) {
-      return new GetTimeSheetCommand();
+      return new GetTimeSheet();
     }
 
     return null;

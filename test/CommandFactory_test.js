@@ -21,7 +21,7 @@ describe('CommandFactory', () => {
         ':sunny:',
       ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
-        assert.equal(command.constructor.name, 'AttendanceCommand');
+        assert.equal(command.constructor.name, 'Attendance');
       });
     });
 
@@ -51,7 +51,7 @@ describe('CommandFactory', () => {
         ':beers:',
       ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
-        assert.equal(command.constructor.name, 'LeavingCommand');
+        assert.equal(command.constructor.name, 'Leaving');
       });
     });
 
@@ -63,13 +63,13 @@ describe('CommandFactory', () => {
         ':bento:',
       ].forEach((message) => {
         const command = CommandFactory.getCommand(message);
-        assert.equal(command.constructor.name, 'RestCommand');
+        assert.equal(command.constructor.name, 'Rest');
       });
     });
 
     it('GetTimeSheetCommand', () => {
       const command = CommandFactory.getCommand('10月の日報をくれ');
-      assert.equal(command.constructor.name, 'GetTimeSheetCommand');
+      assert.equal(command.constructor.name, 'GetTimeSheet');
     });
   });
 });
