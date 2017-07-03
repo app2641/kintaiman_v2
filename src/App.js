@@ -1,5 +1,4 @@
 import CommandFactory from './CommandFactory';
-import DateUtils from './DateUtils';
 import Settings from './Settings';
 
 export default class App {
@@ -16,13 +15,9 @@ export default class App {
 
     if (!this.settings.getUserSheetName(this.userName)) return;
 
-    const utils = new DateUtils();
-    const date = utils.parseDate(this.message);
-    const time = utils.parseTime(this.message);
-
-    const command = CommandFactory.getCommand(this.message);
+    const command = new CommandFactory.getCommand(this.message);
     if (!command) return;
 
-    command.run();
+    command.run(this.settings, this.userName, this.message);
   }
 }

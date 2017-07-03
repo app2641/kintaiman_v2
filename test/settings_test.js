@@ -13,4 +13,14 @@ describe('Settings', () => {
       assert.equal(settings.getUserSheetName('anonymous'), null);
     });
   });
+
+  describe('getTimeSheetId', () => {
+    it('when exists time sheet id', () => {
+      assert.equal(settings.getTimeSheetId(1), 'spreadsheetId');
+    });
+
+    it('when not exists time sheet id', () => {
+      assert.equal(settings.getTimeSheetId(10), null);
+    });
+  });
 });

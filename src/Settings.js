@@ -6,12 +6,20 @@ export default class Settings {
   }
 
   getUserSheetName(name) {
-    const sheet = this.spreadsheet.getSheetByName('Users');
-    const userSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();
-    const matchedUserSet = userSets.find(userSet => (userSet[0] === name));
+    return this.getValue('Users', name);
+  }
 
-    if (matchedUserSet) {
-      return matchedUserSet[1];
+  getTimeSheetId(month) {
+    return this.getValue('TimeSheets', `${month}月`);
+  }
+
+  getValue(sheetName, key) {
+    const sheet = this.spreadsheet.getSheetByName(sheetName);
+    const dataSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();
+    const matchedDataSet = dataSets.find(dataSet => (dataSet[0] === key));
+
+    if (matchedDataSet) {
+      return matchedDataSet[1];
     }
     return null;
   }
