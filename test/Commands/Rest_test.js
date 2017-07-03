@@ -1,13 +1,13 @@
 import assert from 'assert';
-import Attendance from '../../src/Commands/Attendance';
+import Rest from '../../src/Commands/Rest';
 import Settings from '../../src/Settings';
 
-describe('Attendance', () => {
+describe('Rest', () => {
   const settings = new Settings();
-  const command = new Attendance();
+  const command = new Rest();
 
   describe('run', () => {
-    it('write attendance datetime', () => {
+    it('write rest datetime', () => {
       const userName = 'app2641';
       const message = '1/1 10:00';
 

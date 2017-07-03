@@ -9,4 +9,10 @@ describe('TimeSheet', () => {
       assert.equal(timeSheet.setAttendanceTime('ユーザーA', 1, '10:00'), true);
     });
   });
+
+  describe('setRestTime', () => {
+    it('set time', () => {
+      assert.equal(timeSheet.setRestTime('ユーザーA', 1, '1:00'), true);
+    });
+  });
 });
