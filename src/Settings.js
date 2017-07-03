@@ -16,7 +16,11 @@ export default class Settings {
   getValue(sheetName, key) {
     const sheet = this.spreadsheet.getSheetByName(sheetName);
     const dataSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();
-    const matchedDataSet = dataSets.find(dataSet => (dataSet[0] === key));
+
+    let matchedDataSet;
+    dataSets.forEach((dataSet) => {
+      if (dataSet[0] === key) matchedDataSet = dataSet;
+    });
 
     if (matchedDataSet) {
       return matchedDataSet[1];
