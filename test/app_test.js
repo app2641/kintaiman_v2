@@ -13,4 +13,10 @@ describe('App', () => {
     const app = new App(params);
     assert.equal(app.run(), null);
   });
+
+  it('when not find appropriate command', () => {
+    const params = { user_name: 'app2641', message: 'hoge' };
+    const app = new App(params);
+    assert.equal(app.run(), null);
+  });
 });

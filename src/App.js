@@ -21,6 +21,8 @@ export default class App {
     const time = utils.parseTime(this.message);
 
     const command = CommandFactory.getCommand(this.message);
+    if (!command) return;
+
     command.run();
   }
 }
