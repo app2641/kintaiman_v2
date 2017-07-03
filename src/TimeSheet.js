@@ -25,6 +25,15 @@ export default class TimeSheet {
     return true;
   }
 
+  setLeavingTime(sheetName, day, time) {
+    const sheet = this.getSheet(sheetName);
+    const dayRow = this.getDayRow(day);
+    if (!dayRow) return false;
+
+    sheet.getRange(`D${dayRow}`).setValue(time);
+    return true;
+  }
+
   getSheet(sheetName) {
     if (this.sheet) return this.sheet;
     let sheet = this.spreadsheet.getSheetByName(sheetName);
