@@ -17,7 +17,7 @@ export default class CommandFactory {
   }
 
   static get GET_TIMESHEET_REG() {
-    return /[0-9０-９]+月の(?:業務)?日報/;
+    return /([0-9０-９]+)月の(?:業務)?日報/;
   }
 
   static getCommand(message) {
