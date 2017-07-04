@@ -12,6 +12,6 @@ export default class Rest {
 
     const timeSheet = new TimeSheet(timeSheetId);
     const userSheetName = settings.getUserSheetName(userName);
-    return timeSheet.setRestTime(userSheetName, day, time);
+    return timeSheet.setTime(userSheetName, 'E', day, time);
   }
 }

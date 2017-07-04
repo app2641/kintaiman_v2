@@ -12,12 +12,12 @@ export default class Attendance {
 
     const timeSheet = new TimeSheet(timeSheetId);
     const userSheetName = settings.getUserSheetName(userName);
-    const result = timeSheet.setAttendanceTime(userSheetName, day, time);
+    const result = timeSheet.setTime(userSheetName, 'C', day, time);
 
     if (result) {
-      return timeSheet.setRestTime(userSheetName, day, '1:00');
-    } else {
-      return false;
+      return timeSheet.setTime(userSheetName, 'E', day, '1:00');
     }
+
+    return false;
   }
 }

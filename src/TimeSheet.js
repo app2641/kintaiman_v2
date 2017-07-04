@@ -7,30 +7,12 @@ export default class TimeSheet {
     this.spreadsheet = SpreadsheetApp.openById(spreadsheetId);
   }
 
-  setAttendanceTime(sheetName, day, time) {
+  setTime(sheetName, column, day, time) {
     const sheet = this.getSheet(sheetName);
     const dayRow = this.getDayRow(day);
-    if (!dayRow) return false;
+    if (!dayRow) return;
 
-    sheet.getRange(`C${dayRow}`).setValue(time);
-    return true;
-  }
-
-  setRestTime(sheetName, day, time) {
-    const sheet = this.getSheet(sheetName);
-    const dayRow = this.getDayRow(day);
-    if (!dayRow) return false;
-
-    sheet.getRange(`E${dayRow}`).setValue(time);
-    return true;
-  }
-
-  setLeavingTime(sheetName, day, time) {
-    const sheet = this.getSheet(sheetName);
-    const dayRow = this.getDayRow(day);
-    if (!dayRow) return false;
-
-    sheet.getRange(`D${dayRow}`).setValue(time);
+    sheet.getRange(`${column}${dayRow}`).setValue(time);
     return true;
   }
 

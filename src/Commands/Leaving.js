@@ -12,6 +12,6 @@ export default class Leaving {
 
     const timeSheet = new TimeSheet(timeSheetId);
     const userSheetName = settings.getUserSheetName(userName);
-    return timeSheet.setLeavingTime(userSheetName, day, time);
+    return timeSheet.setTime(userSheetName, 'D', day, time);
   }
 }
