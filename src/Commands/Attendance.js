@@ -1,21 +1,17 @@
-import DateUtils from '../DateUtils';
+import AbstractCommand from './AbstractCommand';
 import TimeSheet from '../TimeSheet';
 
-export default class Attendance {
-  run(settings, userName, message) {
-    const utils = new DateUtils();
-    const [month, day] = utils.parseDate(message);
-    const time = utils.parseTime(message);
-
-    const timeSheetId = settings.getTimeSheetId(month);
+export default class Attendance extends AbstractCommand {
+  run() {
+    const timeSheetId = this.settings.getTimeSheetId(this.month);
     if (!timeSheetId) return;
 
     const timeSheet = new TimeSheet(timeSheetId);
-    const userSheetName = settings.getUserSheetName(userName);
-    const result = timeSheet.setTime(userSheetName, 'C', day, time);
+    const userSheetName = this.settings.getUserSheetName(this.userName);
+    const result = timeSheet.setTime(userSheetName, 'C', this.day, this.time);
 
     if (result) {
-      return timeSheet.setTime(userSheetName, 'E', day, '1:00');
+      return timeSheet.setTime(userSheetName, 'E', this.day, '1:00');
     }
 
     return false;

@@ -4,14 +4,13 @@ import Settings from '../../src/Settings';
 
 describe('Rest', () => {
   const settings = new Settings();
-  const command = new Rest();
+  const userName = 'app2641';
+  const message = '1/1 10:00';
+  const command = new Rest(settings, userName, message);
 
   describe('run', () => {
     it('write rest datetime', () => {
-      const userName = 'app2641';
-      const message = '1/1 10:00';
-
-      assert.equal(command.run(settings, userName, message), true);
+      assert.equal(command.run(), true);
     });
   });
 });

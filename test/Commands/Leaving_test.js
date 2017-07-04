@@ -4,14 +4,13 @@ import Settings from '../../src/Settings';
 
 describe('Leaving', () => {
   const settings = new Settings();
-  const command = new Leaving();
+  const userName = 'app2641';
+  const message = '1/1 19:00';
+  const command = new Leaving(settings, userName, message);
 
   describe('run', () => {
     it('write leaving datetime', () => {
-      const userName = 'app2641';
-      const message = '1/1 19:00';
-
-      assert.equal(command.run(settings, userName, message), true);
+      assert.equal(command.run(), true);
     });
   });
 });

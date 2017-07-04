@@ -15,9 +15,15 @@ export default class App {
 
     if (!this.settings.getUserSheetName(this.userName)) return;
 
-    const command = new CommandFactory.getCommand(this.message);
+    const args = [this.settings, this.userName, this.message];
+    const command = new CommandFactory(...args).getCommand();
     if (!command) return;
 
-    command.run(this.settings, this.userName, this.message);
+    const result = command.run();
+    if (result) {
+      const postMessage = command.buildMessage();
+    }
+
+    return;
   }
 }

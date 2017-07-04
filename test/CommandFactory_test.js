@@ -1,8 +1,12 @@
 import assert from 'assert';
 import CommandFactory from '../src/CommandFactory';
+import Settings from '../src/Settings';
 
 describe('CommandFactory', () => {
   describe('getCommand', () => {
+    const settings = new Settings();
+    const userName = 'app2641';
+
     it('AttendanceCommand', () => {
       [
         'おは',
@@ -20,7 +24,8 @@ describe('CommandFactory', () => {
         'oha',
         ':sunny:',
       ].forEach((message) => {
-        const command = CommandFactory.getCommand(message);
+        const args = [settings, userName, message];
+        const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Attendance');
       });
     });
@@ -50,7 +55,8 @@ describe('CommandFactory', () => {
         ':beer:',
         ':beers:',
       ].forEach((message) => {
-        const command = CommandFactory.getCommand(message);
+        const args = [settings, userName, message];
+        const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Leaving');
       });
     });
@@ -62,13 +68,15 @@ describe('CommandFactory', () => {
         '休憩行きます',
         ':bento:',
       ].forEach((message) => {
-        const command = CommandFactory.getCommand(message);
+        const args = [settings, userName, message];
+        const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Rest');
       });
     });
 
     it('GetTimeSheetCommand', () => {
-      const command = CommandFactory.getCommand('10月の日報をくれ');
+      const args = [settings, userName, '1月の日報をくれ'];
+      const command = new CommandFactory(...args).getCommand();
       assert.equal(command.constructor.name, 'GetTimeSheet');
     });
   });
