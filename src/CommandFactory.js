@@ -27,16 +27,14 @@ export default class CommandFactory {
   }
 
   getCommand() {
-    const args = [this.settings, this.userName, this.message];
-
     if (this.message.match(CommandFactory.ATTENDANCE_REG)) {
-      return new Attendance(...args);
+      return new Attendance(this.settings, this.userName, this.message);
     } else if (this.message.match(CommandFactory.LEAVING_REG)) {
-      return new Leaving(...args);
+      return new Leaving(this.settings, this.userName, this.message);
     } else if (this.message.match(CommandFactory.REST_REG)) {
-      return new Rest(...args);
+      return new Rest(this.settings, this.userName, this.message);
     } else if (this.message.match(CommandFactory.GET_TIMESHEET_REG)) {
-      return new GetTimeSheet(...args);
+      return new GetTimeSheet(this.settings, this.userName, this.message);
     }
 
     return null;

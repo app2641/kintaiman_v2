@@ -15,8 +15,7 @@ export default class App {
 
     if (!this.settings.getUserSheetName(this.userName)) return;
 
-    const args = [this.settings, this.userName, this.message];
-    const command = new CommandFactory(...args).getCommand();
+    const command = new CommandFactory(this.settings, this.userName, this.message).getCommand();
     if (!command) return;
 
     const result = command.run();
