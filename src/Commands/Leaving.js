@@ -10,4 +10,8 @@ export default class Leaving extends AbstractCommand {
     const userSheetName = this.settings.getUserSheetName(this.userName);
     return timeSheet.setTime(userSheetName, 'D', this.day, this.time);
   }
+
+  buildMessage() {
+    return `@${this.userName} ${this.month}/${this.day} ${this.time} 退勤`;
+  }
 }

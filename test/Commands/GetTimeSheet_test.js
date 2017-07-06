@@ -13,4 +13,10 @@ describe('GetTimeSheet', () => {
       assert.equal(command.run(), true);
     });
   });
+
+  describe('buildMessage', () => {
+    it('message for post', () => {
+      assert.equal(command.buildMessage(), '@app2641 https://docs.google.com/spreadsheets/d/spreadsheetId/edit');
+    });
+  });
 });

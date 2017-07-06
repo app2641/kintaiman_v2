@@ -21,4 +21,9 @@ export default class GetTimeSheet extends AbstractCommand {
     }
     return null;
   }
+
+  buildMessage() {
+    if (!this.timeSheetUrl) return;
+    return `@${this.userName} ${this.timeSheetUrl}`;
+  }
 }

@@ -13,4 +13,10 @@ describe('Leaving', () => {
       assert.equal(command.run(), true);
     });
   });
+
+  describe('buildMessage', () => {
+    it('message for post', () => {
+      assert.equal(command.buildMessage(), '@app2641 1/1 19:00 退勤');
+    });
+  });
 });

@@ -10,4 +10,8 @@ export default class Rest extends AbstractCommand {
     const userSheetName = this.settings.getUserSheetName(this.userName);
     return timeSheet.setTime(userSheetName, 'E', this.day, this.time);
   }
+
+  buildMessage() {
+    return `@${this.userName} ${this.month}/${this.day} ${this.time} 休憩`;
+  }
 }

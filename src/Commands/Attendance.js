@@ -16,4 +16,8 @@ export default class Attendance extends AbstractCommand {
 
     return false;
   }
+
+  buildMessage() {
+    return `@${this.userName} ${this.month}/${this.day} ${this.time} 出勤`;
+  }
 }
