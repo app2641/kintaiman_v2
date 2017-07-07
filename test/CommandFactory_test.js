@@ -50,6 +50,7 @@ describe('CommandFactory', () => {
         '週末退社',
         'bye-bye',
         'saraba',
+        'SARABA',
         'getwild',
         ':frog:',
         ':beer:',
