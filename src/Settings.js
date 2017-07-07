@@ -13,6 +13,10 @@ export default class Settings {
     return this.getValue('TimeSheets', `${month}月`);
   }
 
+  getSlackUrl() {
+    return this.getValue('Settings', 'SlackUrl');
+  }
+
   getValue(sheetName, key) {
     const sheet = this.spreadsheet.getSheetByName(sheetName);
     const dataSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();

@@ -1,5 +1,6 @@
 import CommandFactory from './CommandFactory';
 import Settings from './Settings';
+import Slack from './Slack';
 
 export default class App {
   constructor(message) {
@@ -21,7 +22,8 @@ export default class App {
     const result = command.run();
     if (result) {
       const postMessage = command.buildMessage();
+      const slack = new Slack(this.settings);
+      return slack.post(postMessage);
     }
-    return;
   }
 }
