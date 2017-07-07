@@ -5,10 +5,9 @@
   "repository": "https://github.com/app2641/kintaiman_v2.git",
   "author": "app2641 <app2641@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "babel-core": "^6.25.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
