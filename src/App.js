@@ -22,7 +22,6 @@ export default class App {
     if (result) {
       const postMessage = command.buildMessage();
     }
-
     return;
   }
 }

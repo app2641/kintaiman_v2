@@ -13,7 +13,6 @@ export default class Attendance extends AbstractCommand {
     if (result) {
       return timeSheet.setTime(userSheetName, 'E', this.day, '1:00');
     }
-
     return false;
   }
 
