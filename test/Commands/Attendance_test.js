@@ -5,8 +5,8 @@ import Settings from '../../src/Settings';
 describe('Attendance', () => {
   const settings = new Settings();
   const userName = 'app2641';
-  const message = '1/1 10:00';
-  const command = new Attendance(settings, userName, message);
+  const text = '1/1 10:00';
+  const command = new Attendance(settings, userName, text);
 
   describe('run', () => {
     it('write attendance datetime', () => {

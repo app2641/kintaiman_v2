@@ -23,8 +23,8 @@ describe('CommandFactory', () => {
         'good morning',
         'oha',
         ':sunny:',
-      ].forEach((message) => {
-        const args = [settings, userName, message];
+      ].forEach((text) => {
+        const args = [settings, userName, text];
         const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Attendance');
       });
@@ -55,8 +55,8 @@ describe('CommandFactory', () => {
         ':frog:',
         ':beer:',
         ':beers:',
-      ].forEach((message) => {
-        const args = [settings, userName, message];
+      ].forEach((text) => {
+        const args = [settings, userName, text];
         const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Leaving');
       });
@@ -68,8 +68,8 @@ describe('CommandFactory', () => {
         '昼食行きます',
         '休憩行きます',
         ':bento:',
-      ].forEach((message) => {
-        const args = [settings, userName, message];
+      ].forEach((text) => {
+        const args = [settings, userName, text];
         const command = new CommandFactory(...args).getCommand();
         assert.equal(command.constructor.name, 'Rest');
       });

@@ -4,7 +4,7 @@ import DateUtils from '../DateUtils';
 
 export default class GetTimeSheet extends AbstractCommand {
   run() {
-    const month = this.parseMonth(this.message);
+    const month = this.parseMonth(this.text);
     const timeSheetId = this.settings.getTimeSheetId(month);
     if (!timeSheetId) return;
 
@@ -13,8 +13,8 @@ export default class GetTimeSheet extends AbstractCommand {
     return true;
   }
 
-  parseMonth(message) {
-    const matched = DateUtils.normalize(message).match(CommandFactory.GET_TIMESHEET_REG);
+  parseMonth(text) {
+    const matched = DateUtils.normalize(text).match(CommandFactory.GET_TIMESHEET_REG);
 
     if (matched) {
       return matched[1];

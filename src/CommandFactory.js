@@ -20,21 +20,21 @@ export default class CommandFactory {
     return /([0-9０-９]+)月の(?:業務)?日報/;
   }
 
-  constructor(settings, userName, message) {
+  constructor(settings, userName, text) {
     this.settings = settings;
     this.userName = userName;
-    this.message = message;
+    this.text = text;
   }
 
   getCommand() {
-    if (this.message.match(CommandFactory.ATTENDANCE_REG)) {
-      return new Attendance(this.settings, this.userName, this.message);
-    } else if (this.message.match(CommandFactory.LEAVING_REG)) {
-      return new Leaving(this.settings, this.userName, this.message);
-    } else if (this.message.match(CommandFactory.REST_REG)) {
-      return new Rest(this.settings, this.userName, this.message);
-    } else if (this.message.match(CommandFactory.GET_TIMESHEET_REG)) {
-      return new GetTimeSheet(this.settings, this.userName, this.message);
+    if (this.text.match(CommandFactory.ATTENDANCE_REG)) {
+      return new Attendance(this.settings, this.userName, this.text);
+    } else if (this.text.match(CommandFactory.LEAVING_REG)) {
+      return new Leaving(this.settings, this.userName, this.text);
+    } else if (this.text.match(CommandFactory.REST_REG)) {
+      return new Rest(this.settings, this.userName, this.text);
+    } else if (this.text.match(CommandFactory.GET_TIMESHEET_REG)) {
+      return new GetTimeSheet(this.settings, this.userName, this.text);
     }
 
     return null;
