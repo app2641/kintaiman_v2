@@ -17,6 +17,10 @@ export default class Settings {
     return this.getValue('Settings', 'SlackUrlv2');
   }
 
+  getTimeSheetsSheet() {
+    return this.spreadsheet.getSheetByName('TimeSheets');
+  }
+
   getValue(sheetName, key) {
     const sheet = this.spreadsheet.getSheetByName(sheetName);
     const dataSets = sheet.getRange(`A1:B${sheet.getLastRow()}`).getValues();

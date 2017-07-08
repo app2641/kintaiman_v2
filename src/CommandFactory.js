@@ -2,6 +2,7 @@ import Attendance from './Commands/Attendance';
 import Leaving from './Commands/Leaving';
 import Rest from './Commands/Rest';
 import GetTimeSheet from './Commands/GetTimeSheet';
+import SetTimeSheet from './Commands/SetTimeSheet';
 
 export default class CommandFactory {
   static get ATTENDANCE_REG() {
@@ -20,6 +21,10 @@ export default class CommandFactory {
     return /([0-9０-９]+)月の(?:業務)?日報/;
   }
 
+  static get TIMESHEET_URL_REG() {
+    return /https?:\/\/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9]+)/;
+  }
+
   constructor(settings, userName, text) {
     this.settings = settings;
     this.userName = userName;
@@ -34,6 +39,9 @@ export default class CommandFactory {
     } else if (this.text.match(CommandFactory.REST_REG)) {
       return new Rest(this.settings, this.userName, this.text);
     } else if (this.text.match(CommandFactory.GET_TIMESHEET_REG)) {
+      if (this.text.match(CommandFactory.TIMESHEET_URL_REG)) {
+        return new SetTimeSheet(this.settings, this.userName, this.text);
+      }
       return new GetTimeSheet(this.settings, this.userName, this.text);
     }
 

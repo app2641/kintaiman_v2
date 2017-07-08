@@ -1,8 +1,6 @@
-import AbstractCommand from './AbstractCommand';
-import CommandFactory from '../CommandFactory';
-import DateUtils from '../DateUtils';
+import AbstractTimeSheetCommand from './AbstractTimeSheetCommand';
 
-export default class GetTimeSheet extends AbstractCommand {
+export default class GetTimeSheet extends AbstractTimeSheetCommand {
   run() {
     const month = this.parseMonth(this.text);
     const timeSheetId = this.settings.getTimeSheetId(month);
@@ -11,15 +9,6 @@ export default class GetTimeSheet extends AbstractCommand {
     this.timeSheetUrl = `https://docs.google.com/spreadsheets/d/${timeSheetId}/edit`;
 
     return true;
-  }
-
-  parseMonth(text) {
-    const matched = DateUtils.normalize(text).match(CommandFactory.GET_TIMESHEET_REG);
-
-    if (matched) {
-      return matched[1];
-    }
-    return null;
   }
 
   buildMessage() {

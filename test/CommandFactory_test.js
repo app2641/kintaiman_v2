@@ -80,5 +80,11 @@ describe('CommandFactory', () => {
       const command = new CommandFactory(...args).getCommand();
       assert.equal(command.constructor.name, 'GetTimeSheet');
     });
+
+    it('SetTimeSheetCommand', () => {
+      const args = [settings, userName, '1月の日報はこれ https://docs.google.com/spreadsheets/d/spreadsheetId/edit'];
+      const command = new CommandFactory(...args).getCommand();
+      assert.equal(command.constructor.name, 'SetTimeSheet');
+    });
   });
 });
