@@ -1,6 +1,10 @@
 export default class TimeSheet {
-  static get ROW_TO_REPORT_TABLE() {
+  static get REPORT_TABLE_FIRST_ROW() {
     return 9;
+  }
+
+  static get REPORT_TABLE_LAST_ROW() {
+    return 41;
   }
 
   constructor(spreadsheetId) {
@@ -30,12 +34,12 @@ export default class TimeSheet {
   }
 
   getDayRow(day) {
-    const lastRow = String(this.sheet.getLastRow());
-    const daySets = this.sheet.getRange(`A${TimeSheet.ROW_TO_REPORT_TABLE}:A${lastRow}`).getValues();
+    const range = `A${TimeSheet.REPORT_TABLE_FIRST_ROW}:A${TimeSheet.REPORT_TABLE_LAST_ROW}`;
+    const daySets = this.sheet.getRange(range).getValues();
 
     let dayRow;
     Object.keys(daySets).forEach((key) => {
-      if (daySets[key][0] === day) dayRow = (TimeSheet.ROW_TO_REPORT_TABLE + key + 1);
+      if (daySets[key][0] === day) dayRow = (TimeSheet.REPORT_TABLE_FIRST_ROW + parseInt(key, 10));
     });
 
     return dayRow;

@@ -6,7 +6,6 @@ const range = {
 const SampleSheet = {
   copyTo: () => (SampleSheet),
   setName: name => (name),
-  getLastRow: () => (41),
   getRange: () => (range),
 };
 
