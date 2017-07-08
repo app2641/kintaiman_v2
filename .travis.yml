@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '6'
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.27.5
+  - export PATH=$HOME/.yarn/bin:$PATH
+cache:
+  yarn: true
+install: yarn install
+script:
+  - yarn lint src test
+  - yarn test
+notifications:
+  email:
+    - app2641@gmail.com
+  on_success: never
+  on_failure: always
