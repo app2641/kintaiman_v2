@@ -1,5 +1,5 @@
 const range = {
-  getValues: () => ([['SlackUrl', 'slack_url']]),
+  getValues: () => ([['SlackUrlv2', 'slack_url']]),
 };
 
 export default {
