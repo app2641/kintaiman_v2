@@ -19,4 +19,10 @@ describe('App', () => {
     const app = new App(params);
     assert.equal(app.run(), null);
   });
+
+  it('when process is successful', () => {
+    const params = { user_name: 'app2641', text: '1/1 おは' };
+    const app = new App(params);
+    assert.equal(app.run(), true);
+  });
 });
