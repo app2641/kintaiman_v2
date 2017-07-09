@@ -22,7 +22,7 @@ export default class CommandFactory {
   }
 
   static get TIMESHEET_URL_REG() {
-    return /https?:\/\/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9]+)/;
+    return /https?:\/\/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
   }
 
   constructor(settings, userName, text) {

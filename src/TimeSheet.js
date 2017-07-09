@@ -38,8 +38,8 @@ export default class TimeSheet {
     const daySets = this.sheet.getRange(range).getValues();
 
     let dayRow;
-    Object.keys(daySets).forEach((key) => {
-      if (daySets[key][0] === day) dayRow = (TimeSheet.REPORT_TABLE_FIRST_ROW + parseInt(key, 10));
+    daySets.forEach((daySet, index) => {
+      if (daySet[0] === day) dayRow = (TimeSheet.REPORT_TABLE_FIRST_ROW + index);
     });
 
     return dayRow;

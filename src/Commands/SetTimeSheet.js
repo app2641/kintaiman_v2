@@ -17,8 +17,8 @@ export default class SetTimeSheet extends AbstractTimeSheetCommand {
     const sheetSets = sheet.getRange('A1:B12').getValues();
 
     let monthRow;
-    Object.keys(sheetSets).forEach((key) => {
-      if (sheetSets[key][0] === `${this.month}月`) monthRow = key;
+    sheetSets.forEach((sheetSet, index) => {
+      if (sheetSet[0] === `${this.month}月`) monthRow = index + 1;
     });
 
     return monthRow;

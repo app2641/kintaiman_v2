@@ -3,7 +3,7 @@ import AbstractTimeSheetCommand from '../../src/Commands/AbstractTimeSheetComman
 import Settings from '../../src/Settings';
 
 describe('AbstractTimeSheetCommand', () => {
-  const settings = new Settings;
+  const settings = new Settings();
   const userName = 'app2641';
   const message = '1月の日報 https://docs.google.com/spreadsheets/d/spreadsheetId/edit';
   const command = new AbstractTimeSheetCommand(settings, userName, message);
