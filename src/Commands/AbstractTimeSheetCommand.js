@@ -13,7 +13,7 @@ export default class AbstractTimeSheetCommand extends AbstractCommand {
   }
 
   parseSpreadsheetId(text) {
-    const matched = DateUtils.normalize(text).match(CommandFactory.TIMESHEET_URL_REG);
+    const matched = text.match(CommandFactory.TIMESHEET_URL_REG);
 
     if (matched) {
       return matched[1];
