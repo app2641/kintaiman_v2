@@ -11,7 +11,7 @@ export default class DateUtils {
     return /((\d{4})[-/年]{1}|)(\d{1,2})[-/月]{1}(\d{1,2})/;
   }
 
-  parseTime(str) { // eslint-disable-line class-methods-use-this
+  parseTime(str) {
     const normalizedStr = DateUtils.normalize(str);
     const matches = normalizedStr.match(DateUtils.TIME_REG);
 
