@@ -11,6 +11,6 @@ export default class AppLogger {
 text: ${this.text}
 exception: ${this.expMsg}`;
     const email = this.settings.getValue('Settings', 'LoggingEmail');
-    GmailApp.sendEmail(email, 'kintaiman log', body);
+    GmailApp.sendEmail(email, 'kintaiman log for debug', body);
   }
 }

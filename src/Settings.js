@@ -14,7 +14,7 @@ export default class Settings {
   }
 
   getSlackUrl() {
-    return this.getValue('Settings', 'SlackUrlv2');
+    return this.getValue('Settings', 'SlackDebugUrl');
   }
 
   getTimeSheetsSheet() {
