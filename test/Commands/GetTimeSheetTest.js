@@ -21,7 +21,7 @@ describe('GetTimeSheet', () => {
       const command = new GetTimeSheet(settings, userName, text);
       command.run();
 
-      assert.equal(command.buildMessage(), '@app2641 https://docs.google.com/spreadsheets/d/spreadsheetId/edit');
+      assert.equal(command.buildMessage(), '@app2641 https://docs.google.com/spreadsheets/d/spreadsheetId/edit#gid=sheetId');
     });
 
     it('not found timesheet', () => {

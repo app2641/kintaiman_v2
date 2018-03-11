@@ -7,6 +7,7 @@ const SampleSheet = {
   copyTo: () => (SampleSheet),
   setName: name => (name),
   getRange: () => (range),
+  getSheetId: () => ('sheetId'),
 };
 
 export default SampleSheet;

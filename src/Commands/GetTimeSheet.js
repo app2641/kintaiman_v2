@@ -1,11 +1,22 @@
 import AbstractTimeSheetCommand from './AbstractTimeSheetCommand';
+import TimeSheet from '../TimeSheet';
 
 export default class GetTimeSheet extends AbstractTimeSheetCommand {
   run() {
     const month = this.parseMonth(this.text);
     const timeSheetId = this.settings.getTimeSheetId(month);
-    if (timeSheetId) this.timeSheetUrl = `https://docs.google.com/spreadsheets/d/${timeSheetId}/edit`;
 
+    const userSheetName = this.settings.getUserSheetName(this.userName);
+    const timeSheet = new TimeSheet(timeSheetId);
+    const sheet = timeSheet.getSheet(userSheetName);
+    const sheetId = sheet.getSheetId();
+
+    if (timeSheetId) {
+      const gid = sheetId ? `#gid=${sheetId}` : '';
+      this.timeSheetUrl = `https://docs.google.com/spreadsheets/d/${timeSheetId}/edit${gid}`;
+    } else {
+      return null;
+    }
     return true;
   }
 
