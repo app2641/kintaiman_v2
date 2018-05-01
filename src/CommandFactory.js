@@ -10,7 +10,7 @@ export default class CommandFactory {
   }
 
   static get LEAVING_REG() {
-    return /おつ|おわり|おわる|かえり|かえる|さらば|さば|鯖|サバ|さよう?なら|グッバイ|乙|お疲|お先|終わり|終わる|失礼します|帰|退勤|退社|bye|ots?u|saraba|get\s*wild|:frog:|:beer:|:beers:/i;
+    return /おつ|おわり|おわる|かえり|かえる|さらば|さば|鯖|サバ|さよう?なら|グッバイ|乙|お疲|お先|終わり|終わる|失礼します|帰|退勤|退社|サラダバー|bye|ots?u|saraba|get\s*wild|:frog:|:beer:|:beers:/i;
   }
 
   static get REST_REG() {
