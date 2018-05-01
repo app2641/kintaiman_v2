@@ -1,3 +1,3 @@
 export default {
-  formatDate: (date, timeZone, format) => ('2'),
+  formatDate: () => ('2'),
 };
