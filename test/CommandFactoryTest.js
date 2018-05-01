@@ -53,6 +53,7 @@ describe('CommandFactory', () => {
         '帰ります',
         '退勤',
         '週末退社',
+        'サラダバー',
         'bye-bye',
         'otsu',
         ':otukaresama:',
