@@ -39,7 +39,9 @@ export default class TimeSheet {
 
     let dayRow;
     daySets.forEach((daySet, index) => {
-      if (daySet[0] === day) dayRow = (TimeSheet.REPORT_TABLE_FIRST_ROW + index);
+      let value = daySet[0];
+      if (value.constructor.name === 'Date') value = Utilities.formatDate(value, 'JST', 'd');
+      if (String(value) === String(day)) dayRow = (TimeSheet.REPORT_TABLE_FIRST_ROW + index);
     });
 
     return dayRow;

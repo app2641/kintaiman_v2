@@ -1,5 +1,5 @@
 const range = {
-  getValues: () => ([[1], [2], [3]]),
+  getValues: () => ([[1], [new Date('2018-05-02T00:00:00+0900')], [3]]),
   setValue: () => (true),
 };
 

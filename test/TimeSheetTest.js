@@ -7,6 +7,7 @@ describe('TimeSheet', () => {
   describe('setTime', () => {
     it('set time', () => {
       assert.equal(timeSheet.setTime('ユーザーA', 'C', 1, '10:00'), true);
+      assert.equal(timeSheet.setTime('ユーザーA', 'C', 2, '10:00'), true);
     });
   });
 });
