@@ -6,11 +6,11 @@ import SetTimeSheet from './Commands/SetTimeSheet';
 
 export default class CommandFactory {
   static get ATTENDANCE_REG() {
-    return /おは|おっは|はじめ|はろー|ハロー|モーニン|出勤|出社|始め|hello|morning|oha|:sunny:/i;
+    return /おっ?は|はじめ|はろー|ハロー|モーニン|出勤|出社|始め|hello|morning|oha|:sunny:/i;
   }
 
   static get LEAVING_REG() {
-    return /おつ|おわり|おわる|かえり|かえる|さらば|さば|鯖|サバ|さよう?なら|グッバイ|乙|お疲|お先|終わり|終わる|失礼します|帰|退勤|退社|サラダバー|bye|ots?u|saraba|get\s*wild|:frog:|:beer:|:beers:/i;
+    return /おっ?つ|おわり|おわる|かえり|かえる|さらば|さば|鯖|サバ|さよう?なら|グッバイ|乙|お疲|お先|終わり|終わる|失礼します|帰|退勤|退社|サラダバー|bye|ots?u|saraba|get\s*wild|:frog:|:beer:|:beers:/i;
   }
 
   static get REST_REG() {

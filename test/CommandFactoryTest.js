@@ -33,6 +33,7 @@ describe('CommandFactory', () => {
     it('LeavingCommand', () => {
       [
         'おつ',
+        'おっつ',
         'おわります',
         'おわる',
         'かえります',
